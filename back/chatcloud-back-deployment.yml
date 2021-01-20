@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chatcloud-back
+spec:
+  selector:
+    matchLabels:
+      app: chatcloud-back
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: chatcloud-back
+    spec:
+      containers:
+      - name: chatcloud-back
+        image: dramanedev/backend-app
+        ports:
+        - containerPort: 3000
+        env:
+        - name: DB_NAME
+          value: chatcloud
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: username
+        - name: DB_PWD
+          valueFrom:
+            secretKeyRef:
+              name: mysecret
+              key: password
+        - name: DB_HOST
+          value: mariadb
+        - name: REDIS_HOST
+          value: redis
+        - name: SERVER_PORT
+          value: 3000

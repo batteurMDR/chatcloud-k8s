@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chatcloud-front
+spec:
+  selector:
+    matchLabels:
+      app: chatcloud-front
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: chatcloud-front
+    spec:
+      containers:
+      - name: chatcloud-front
+        image: dramanedev/angular-app
+        ports:
+        - containerPort: 80
