@@ -6,20 +6,23 @@ spec:
   selector:
     matchLabels:
       app: chatcloud-back
-  replicas: 4
+  strategy:
+    type: Recreate
+  replicas: 1
   template:
     metadata:
       labels:
         app: chatcloud-back
     spec:
       containers:
-      - name: chatcloud-back
-        image: dramanedev/backend-app
+      - image: dramanedev/backend-app
+        name: chatcloud-back
         ports:
         - containerPort: 3000
+          name: chatcloud-back
         env:
         - name: DB_NAME
-          value: chatcloud
+          value: "chatcloud"
         - name: DB_USER
           valueFrom:
             secretKeyRef:
@@ -31,8 +34,8 @@ spec:
               name: mysecret
               key: password
         - name: DB_HOST
-          value: mariadb
+          value: "mariadb"
         - name: REDIS_HOST
-          value: redis
+          value: "redis"
         - name: SERVER_PORT
           value: 3000
