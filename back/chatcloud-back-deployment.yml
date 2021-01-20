@@ -38,4 +38,4 @@ spec:
         - name: REDIS_HOST
           value: "redis"
         - name: SERVER_PORT
-          value: 3000
+          value: "3000"
