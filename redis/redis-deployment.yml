@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: redis
 spec:
+  restartPolicy: Always
   selector:
     matchLabels:
       app: redis
@@ -16,7 +17,6 @@ spec:
       - name: redis
         image: redis
         imagePullPolicy: IfNotPresent
-        restartPolicy: Always
         resources:
           limits:
             cpu: 100m

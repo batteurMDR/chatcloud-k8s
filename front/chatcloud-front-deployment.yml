@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: chatcloud-front
 spec:
+  restartPolicy: Always
   selector:
     matchLabels:
       app: chatcloud-front
@@ -16,7 +17,6 @@ spec:
       - name: chatcloud-front
         image: dramanedev/angular-app
         imagePullPolicy: IfNotPresent
-        restartPolicy: Always
         resources:
           requests:
             cpu: 100m

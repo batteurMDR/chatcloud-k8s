@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: chatcloud-back
 spec:
+  restartPolicy: Always
   selector:
     matchLabels:
       app: chatcloud-back
@@ -18,7 +19,6 @@ spec:
       - image: dramanedev/backend-app
         name: chatcloud-back
         imagePullPolicy: IfNotPresent
-        restartPolicy: Always
         resources:
           requests:
             cpu: 100m
