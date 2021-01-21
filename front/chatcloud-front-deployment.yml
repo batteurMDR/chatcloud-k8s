@@ -17,3 +17,10 @@ spec:
         image: dramanedev/angular-app
         ports:
         - containerPort: 80
+        volumeMounts:
+        - name: config-env
+          mountPath: /usr/share/nginx/html/config/
+      volumes:
+      - name: config-env
+        configMap:
+          name: config-env
