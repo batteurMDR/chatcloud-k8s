@@ -18,10 +18,10 @@ spec:
         imagePullPolicy: IfNotPresent
         resources:
           requests:
-            cpu: 20m
+            cpu: 15m
             memory: 20Mi
           limits:
-            cpu: 100m
+            cpu: 30m
             memory: 100Mi
         ports:
         - containerPort: 80
