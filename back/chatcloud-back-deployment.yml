@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   name: chatcloud-back
 spec:
-  restartPolicy: Always
   selector:
     matchLabels:
       app: chatcloud-back
