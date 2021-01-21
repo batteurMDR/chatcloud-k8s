@@ -1,0 +1,10 @@
+# livenessProbe:
+#   httpGet:
+#     path: /ping
+#     port: chatcloud-back
+#   initialDelaySeconds: 5
+# readinessProbe:
+#   httpGet:
+#     path: /ping
+#     port: chatcloud-back
+#   initialDelaySeconds: 3

@@ -15,11 +15,31 @@ spec:
       containers:
       - name: chatcloud-front
         image: dramanedev/angular-app
+        imagePullPolicy: IfNotPresent
+        restartPolicy: Always
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 20m
+            memory: 20Mi
         ports:
         - containerPort: 80
+          name: chatcloud-front
         volumeMounts:
         - name: config-env
           mountPath: /usr/share/nginx/html/config/
+        livenessProbe:
+          httpGet:
+            path: /
+            port: chatcloud-front
+          initialDelaySeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /
+            port: chatcloud-front
+          initialDelaySeconds: 3
       volumes:
       - name: config-env
         configMap:

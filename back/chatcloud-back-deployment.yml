@@ -17,6 +17,15 @@ spec:
       containers:
       - image: dramanedev/backend-app
         name: chatcloud-back
+        imagePullPolicy: IfNotPresent
+        restartPolicy: Always
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 20m
+            memory: 20Mi
         ports:
         - containerPort: 3000
           name: chatcloud-back
