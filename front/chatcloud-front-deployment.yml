@@ -18,11 +18,11 @@ spec:
         imagePullPolicy: IfNotPresent
         resources:
           requests:
-            cpu: 100m
-            memory: 100Mi
-          limits:
             cpu: 20m
             memory: 20Mi
+          limits:
+            cpu: 100m
+            memory: 100Mi
         ports:
         - containerPort: 80
           name: chatcloud-front
