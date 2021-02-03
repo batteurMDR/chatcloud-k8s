@@ -16,7 +16,6 @@ spec:
       containers:
       - image: mariadb:10.5
         imagePullPolicy: IfNotPresent
-        restartPolicy: Always
         name: mariadb
         env:
         - name: MYSQL_ROOT_PASSWORD

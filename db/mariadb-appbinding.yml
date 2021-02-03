@@ -1,0 +1,13 @@
+apiVersion: appcatalog.appscode.com/v1alpha1
+kind: AppBinding
+metadata:
+  name: mariadb
+spec:
+  clientConfig:
+    service:
+      name: mariadb
+      port: 3306
+      scheme: mariadb
+  secret:
+    name: mysecret
+  type: mariadb
